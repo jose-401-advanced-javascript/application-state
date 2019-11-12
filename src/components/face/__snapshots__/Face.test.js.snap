@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Face component renders Face 1`] = `
+<p
+  className="Face"
+  style={
+    Object {
+      "display": "none",
+    }
+  }
+>
+  😀
+</p>
+`;
