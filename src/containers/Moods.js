@@ -7,17 +7,20 @@ import actions from '../actions/actions';
 import { getFace } from '../selectors/selectors';
 import styles from './Moods.css';
 
-const Moods = ({ state, countAction }) => {
+const Moods = ({ state, countAction, startTimer }) => {
   const face = getFace(state);
   const controlActions = actions.map(action => ({
     ...action,
     count: state[action.stateName]
   }));
+
+  const start = state.start;
+
   return (
     <section className={styles.Moods}>
       <Controls actions={controlActions} handleSelection={countAction}/>
-      <Face emoji={face} />
-      <button>Start</button>
+      <Face emoji={face} start={start} />
+      <button onClick={startTimer}>Start</button>
     </section>
 
   );
@@ -38,12 +41,19 @@ const mapDispatchToProps = dispatch => ({
     dispatch({
       type: name
     });
+
+  },
+  startTimer() {
+    dispatch({
+      type: 'START'
+    });
   }
 });
 
 Moods.propTypes = {
   state: PropTypes.object,
-  countAction: PropTypes.func
+  countAction: PropTypes.func,
+  startTimer: PropTypes.func,
 };
 
 const MoodsContainer = connect(
