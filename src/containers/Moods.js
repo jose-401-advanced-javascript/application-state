@@ -5,6 +5,7 @@ import Controls from '../components/controls/Controls';
 import Face from '../components/face/Face';
 import actions from '../actions/actions';
 import { getFace } from '../selectors/selectors';
+import styles from './Moods.css';
 
 const Moods = ({ state, countAction }) => {
   const face = getFace(state);
@@ -13,10 +14,11 @@ const Moods = ({ state, countAction }) => {
     count: state[action.stateName]
   }));
   return (
-    <>
+    <section className={styles.Moods}>
       <Controls actions={controlActions} handleSelection={countAction}/>
       <Face emoji={face} />
-    </>
+      <button>Start</button>
+    </section>
 
   );
 };
