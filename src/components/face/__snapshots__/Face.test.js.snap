@@ -3,6 +3,11 @@
 exports[`Face component renders Face 1`] = `
 <p
   className="Face"
+  style={
+    Object {
+      "display": "none",
+    }
+  }
 >
   😀
 </p>
